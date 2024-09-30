@@ -5,14 +5,27 @@ Project 1 - A Number Guessing Game
 """
 
 # Import the random and statistics modules.
+import random
+import statistics
 
 # Create the start_game function.
+# Raj - Added numbers with range, had to increase by one to allow for 20 number and add as a list to show each number.
+#def start_game():
+numbers = list(range(1,21))
+print(numbers)
 # Write your code inside this function.
 
 #   When the program starts, we want to:
 #   ------------------------------------
 #   1. Display an intro/welcome message to the player.
+print("Hello, Welcome to the Number Guessing Game!")
+
 #   2. Store a random number as the answer/solution.
+# Raj - Had to change from "randint()" to "choice()" because it was a list not a numerical list.
+random_answer = random.choice(numbers)
+print(random_answer)
+
+
 #   3. Continuously prompt the player for a guess.
 #     a. If the guess is greater than the solution, display to the player "It's lower".
 #     b. If the guess is less than the solution, display to the player "It's higher".
