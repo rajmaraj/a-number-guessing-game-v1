@@ -20,10 +20,14 @@ print(random_answer)
 #guess = input("Please Guess The Number: ")?
 
 def start_game(guess):
-    if guess != random_answer:
-        print("Wrong!")
-    else:
-        print("Correct!")
+    if guess < random_answer:
+        print("It's Higher! :( ")
+    elif guess > random_answer:
+        print("It's Lower :( ")
+    else: 
+        guess != random_answer
+        print("Got It!")
+#Create a loop
 
 player_guess = int(input('Take a guess: '))
 
