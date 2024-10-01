@@ -8,28 +8,46 @@ Project 1 - A Number Guessing Game
 import random
 import statistics
 
-# Create the start_game function.
-# Raj - Added numbers with range, had to increase by one to allow for 20 number and add as a list to show each number.
-#def start_game():
+print("Hello, Welcome to the Number Guessing Game!\n")
+print("Guess a number from the list below")
+print("")
+
 numbers = list(range(1,21))
 print(numbers)
+
+random_answer = random.choice(numbers)
+print(random_answer)
+
+#guess = input("Please Guess The Number: ")
+
+
+def start_game(guess):
+    if guess != random_answer:
+        print("Wrong!")
+    else:
+        print("Correct!")
+
+player_guess = (input('Take a guess: '))
+
+start_game(player_guess)
+
+# Create the start_game function.
+# Raj - Added numbers with range, had to increase by one to allow for 20 number and add as a list to show each number.
+#def start_game(guess):
+
 # Write your code inside this function.
 
 #   When the program starts, we want to:
 #   ------------------------------------
 #   1. Display an intro/welcome message to the player.
-print("Hello, Welcome to the Number Guessing Game!")
-
 #   2. Store a random number as the answer/solution.
 # Raj - Had to change from "randint()" to "choice()" because it was a list not a numerical list.
-random_answer = random.choice(numbers)
-print(random_answer)
+
 
 
 #   3. Continuously prompt the player for a guess.
 #     a. If the guess is greater than the solution, display to the player "It's lower".
 #     b. If the guess is less than the solution, display to the player "It's higher".
-
 #   4. Once the guess is correct, stop looping, inform the user they "Got it" and store the number of guesses it took in a list.
 #   5. Display the following data to the player
 #     a. How many attempts it took them to get the correct number in this game
