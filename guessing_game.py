@@ -15,23 +15,26 @@ numbers = list(range(1,21))
 print(numbers)
 
 random_answer = random.choice(numbers)
-print(random_answer)
+#print(random_answer)
 
 #guess = input("Please Guess The Number: ")?
 
-def start_game(guess):
-    if guess < random_answer:
-        print("It's Higher! :( ")
-    elif guess > random_answer:
-        print("It's Lower :( ")
-    else: 
-        guess != random_answer
-        print("Got It!")
+def start_game():
+    guess = None
+    while guess != random_answer:
+        guess = int(input('Take a guess: '))
+        if guess < random_answer:
+            print("It's Higher! :( ")
+        elif guess > random_answer:
+            print("It's Lower :( ")
+        else: 
+            guess != random_answer
+            print("Got It!")
 #Create a loop
 
-player_guess = int(input('Take a guess: '))
+#player_guess = int(input('Take a guess: '))
 
-start_game(player_guess)
+start_game()
 
 # Create the start_game function.
 # Raj - Added numbers with range, had to increase by one to allow for 20 number and add as a list to show each number.
