@@ -8,34 +8,44 @@ Project 1 - A Number Guessing Game
 import random
 import statistics
 
-print("Hello, Welcome to the Number Guessing Game!")
-print("Guess a number from the list below\n")
-
 numbers = list(range(1,21))
 print(numbers)
 
 random_answer = random.choice(numbers)
 #print(random_answer)
 
-#guess = input("Please Guess The Number: ")?
+guess_counter = []
+high_score = None
 
 def start_game():
+    print("Hello, Welcome to the Number Guessing Game!")
+    print("Guess a number from the list above.\n")
     guess = None
+    attempts = 0
     while guess != random_answer:
         guess = int(input('Take a guess: '))
+        attempts += 1
         if guess < random_answer:
             print("It's Higher! :( ")
         elif guess > random_answer:
             print("It's Lower :( ")
         else: 
             guess != random_answer
-            print("Got It!")
-#Create a loop
+            # Can I remove this line above because else statement assumes the answer is correct?
+            print(f"Got It! in {attempts} trys")
+            guess_counter.append(attempts)
 
-#player_guess = int(input('Take a guess: '))
+def leader():
+    high_score = min(guess_counter)
+    print(f"Can you beat the high score of {high_score}?")
+
 
 start_game()
+leader()
+#print(guess_counter)
 
+
+#player_guess = int(input('Take a guess: '))
 # Create the start_game function.
 # Raj - Added numbers with range, had to increase by one to allow for 20 number and add as a list to show each number.
 #def start_game(guess):
