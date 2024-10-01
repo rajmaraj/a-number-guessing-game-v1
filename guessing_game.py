@@ -7,11 +7,13 @@ Project 1 - A Number Guessing Game
 import random
 import statistics
 
+print("Hello, Welcome to the Number Guessing Game!")
+print("Guess a number from the list below\n")
+
 numbers = list(range(1,21))
 #print(numbers)
 
-guess_counter = []
-high_score = None
+#guess = input("Please Guess The Number: ")?
 
 def stats():
     if guess_counter:
@@ -32,47 +34,33 @@ def stats():
         print("No high score yet.")
 
 def start_game():
-    global random_answer
-    random_answer = random.choice(numbers)
-    #print(random_answer)
     print("Hello, Welcome to the Number Guessing Game!")
     print("Guess a number from the list above.\n")
     guess = None
-    attempts = 0
     while guess != random_answer:
         guess = int(input('Take a guess: '))
-        attempts += 1
         if guess < random_answer:
             print("It's Higher! :( ")
         elif guess > random_answer:
             print("It's Lower :( ")
         else: 
-            #guess != random_answer
+            guess != random_answer
             # Can I remove this line above because else statement assumes the answer is correct?
             print(f"Got It! in {attempts} trys")
             guess_counter.append(attempts)
 
-def play_again():
-    while True:
-        play_again_prompt = input("Do you want to play again? Yes/No: ").lower()
-        if play_again_prompt == "yes":
-            start_game()
-            stats()
-        elif play_again_prompt == "no":
-            print("Goodbye!")
-            break
-        else:
-            print("error please enter yes/no.")
+def leader():
+    high_score = min(guess_counter)
+    print(f"Can you beat the high score of {high_score}?")
 
 
-
-
-
-
+start_game()
+leader()
 #print(guess_counter)
 
-# :done: Import the random and statistics modules.
-# :done: Create the start_game function.
+
+#player_guess = int(input('Take a guess: '))
+# Create the start_game function.
 # Raj - Added numbers with range, had to increase by one to allow for 20 number and add as a list to show each number.
 #def start_game(guess):
 # Write your code inside this function.
