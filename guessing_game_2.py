@@ -31,6 +31,9 @@ def start_game():
         while user_guess != random_answer:
             try:
                 user_guess = int(input('Take a guess:  '))
+                if not 1 <= user_guess <= 20: # limits user from using only 1-10 with //if not// print message
+                    print('Must be a number between 1-20')
+                    continue
             except ValueError: # shows error if not a number
                 print('Error, enter valid number')
                 continue
