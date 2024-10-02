@@ -1,7 +1,5 @@
 """
-Data Analysis Techdegree
-Project 1 - A Number Guessing Game
---------------------------------
+DO NO USE
 """
 
 import random

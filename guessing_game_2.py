@@ -1,3 +1,8 @@
+"""
+Data Analysis Techdegree
+Project 1 - A Number Guessing Game
+--------------------------------
+"""
 
 import random
 import statistics
