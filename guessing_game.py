@@ -7,56 +7,60 @@ Project 1 - A Number Guessing Game
 import random
 import statistics
 
-print("Hello, Welcome to the Number Guessing Game!")
-print("Guess a number from the list below\n")
-
 numbers = list(range(1,21))
-#print(numbers)
-
-#guess = input("Please Guess The Number: ")?
+guess_counter = []
 
 def stats():
     if guess_counter:
-        global high_score
-        high_score = min(guess_counter)
         mean_attempts = statistics.mean(guess_counter)
         median_attempts = statistics.median(guess_counter)
         mode_attempts = statistics.mode(guess_counter)
-        try:
-            mode_attempts = statistics.mode(guess_counter)
-        except statistics.StatisticsError:
-            mode_attempts = "No Mode Attempts"
-        print(f"Can you beat the high score of {high_score}?")
+    else:   
+        print("Stats")
         print(f"Mean attempts {mean_attempts}")
         print(f"Median attempts {median_attempts}")
         print(f"Mode attempts {mode_attempts}")
-    else:
-        print("No high score yet.")
+
 
 def start_game():
+    
     print("Hello, Welcome to the Number Guessing Game!")
     print("Guess a number from the list above.\n")
-    guess = None
-    while guess != random_answer:
-        guess = int(input('Take a guess: '))
-        if guess < random_answer:
-            print("It's Higher! :( ")
-        elif guess > random_answer:
-            print("It's Lower :( ")
+    
+    while True:
+        random_answer = random.choice(numbers)
+        user_guess = None
+        attempts = 0
+
+        while user_guess != random_answer:
+            try:
+                user_guess = int(input('Take a guess: '))
+            except ValueError:
+                print('Error enter a number')
+                continue
+
+            attempts += 1
+
+            if user_guess < random_answer:
+                    print("It's Higher! :( ")
+            elif user_guess > random_answer:
+                    print("It's Lower :( ")
         else: 
-            guess != random_answer
-            # Can I remove this line above because else statement assumes the answer is correct?
             print(f"Got It! in {attempts} trys")
             guess_counter.append(attempts)
+            
+            try_again = input("Play again? Yes/No:  ").strip().lower()
+            if try_again != 'yes':
+                break
 
-def leader():
-    high_score = min(guess_counter)
-    print(f"Can you beat the high score of {high_score}?")
 
-
-start_game()
-leader()
-#print(guess_counter)
+while True:
+      start_game()
+      stats()
+      play_again = input('Play again? Yes/No:  ').strip().lower()
+      if play_again != 'yes':
+            print("Goodbye!")
+            break
 
 
 #player_guess = int(input('Take a guess: '))
