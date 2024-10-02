@@ -11,7 +11,7 @@ numbers = list(range(1,21))
 guess_counter = []
 
 def stats():
-    if guess_counter:
+    if guess_counter:# If guess counter has a value then run stats
         mean_attempts = statistics.mean(guess_counter)
         median_attempts = statistics.median(guess_counter)
         mode_attempts = statistics.mode(guess_counter)

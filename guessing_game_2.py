@@ -6,7 +6,7 @@ numbers = list(range(1,21))
 guess_counter = []
 
 def stats():
-    if guess_counter:
+    if guess_counter:# If guess counter has a value then run stats
         mean_attempts = statistics.mean(guess_counter)
         median_attempts = statistics.median(guess_counter)
         try:
@@ -18,8 +18,6 @@ def stats():
         print(f"Mean: {mean_attempts}")
         print(f"Median: {median_attempts}")
         print(f"Mode: {mode_attempts}")
-    else:
-        print("No stats yet")
 
 def start_game():
     print("Hello, Welcome to the Number Guessing Game!")
