@@ -20,7 +20,13 @@ def stats():
         print(f"Mode: {mode_attempts}")
 
 def start_game():
-    print("Hello, Welcome to the Number Guessing Game!")
+    if len(guess_counter) > 0:
+        high_score = min(guess_counter)
+        print(f"\nHigh Score {high_score}")
+    else:
+        print("\nBe the first high score!")
+
+    print("\nHello, Welcome to the Number Guessing Game!")
     print("Guess a number from 1 to 20\n")
 
     while True:
@@ -30,7 +36,7 @@ def start_game():
 
         while user_guess != random_answer:
             try:
-                user_guess = int(input('Take a guess:  '))
+                user_guess = int(input('\nTake a guess:  '))
                 if not 1 <= user_guess <= 20: # limits user from using only 1-10 with //if not// print message
                     print('Must be a number between 1-20')
                     continue
@@ -45,17 +51,21 @@ def start_game():
             elif user_guess > random_answer:
                 print("It's Lower. :( ")
         else: #can this else be removed? 
-            print(f"Got It! in {attempts} tries")
+            print(f"\nGot It! in {attempts} tries")
             guess_counter.append(attempts)
 
-            try_again = input('Play again? Yes/No:  ').strip().lower() # asks to play again and stores in try_again
-            if try_again != 'yes': # if yes while true and return to line 27
+            try_again = input('Play again? Yes/No:  \n').strip().lower() # asks to play again and stores in try_again
+            if try_again != '8': # if yes while true and return to line 27
                 break # if answer is no then stop game and run //stats// and play_again 
 
 while True:
     start_game()
     stats()
+
+""" while True:
+    start_game()
+    stats()
     play_again = input("\nDo you want to reset and play again? Yes/No: ").strip().lower() # asks to play again and stores in play_again
     if play_again != 'yes': # if yes while true to run again
         print("Thanks for playing!")
-        break # end program if no
+        break # end program if no """
