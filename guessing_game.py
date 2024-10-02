@@ -62,6 +62,13 @@ while True:
             print("Goodbye!")
             break
 
+""" while True:
+    start_game()
+    stats()
+    play_again = input("\nDo you want to reset and play again? Yes/No: ").strip().lower() # asks to play again and stores in play_again
+    if play_again != 'yes': # if yes while true to run again
+        print("Thanks for playing!")
+        break # end program if no """
 
 #player_guess = int(input('Take a guess: '))
 # Create the start_game function.
